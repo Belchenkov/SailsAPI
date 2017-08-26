@@ -4,7 +4,7 @@
         <tr class="bg-secondary">
             <th>#</th>
             <th>Title</th>
-            <th></th>
+            <th>Manage</th>
         </tr>
     </thead>
     <tbody>
@@ -16,7 +16,17 @@
                 <td>
                     <%= article.title %>
                 </td>
-                <td></td>
+                <td>
+                    <a href="/articles/edit/<%= article.id %>" class="mr-2 btn btn-outline-warning">
+                        <i class="fa fa-edit"></i> Edit
+                    </a>
+                    <form method="post" class="d-inline" action="/articles/delete/<%= article.id %>">
+                        <button type="submit" class="btn btn-outline-danger">
+                            <i class="fa fa-trash mr-1"></i>
+                            Delete
+                        </button>
+                    </form>
+                </td>
             </tr>
             <% }) %>
     </tbody>
